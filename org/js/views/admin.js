@@ -10,6 +10,7 @@
                 that.render();
             },
             events: {
+                "click .create":"createItem"
             },
             render:function(){
                 var that       = this;
@@ -34,6 +35,13 @@
                         })
                     },data:{"group":"vote"}
                 })
+            },createItem:function(){
+                var that    = this
+                ,title      = that.$(".createNewItem .title").val()
+                ,videoLink  = that.$(".createNewItem .videoLink").val();
+
+                that.items.create({title:title,body:{video:videoLink},states:{count:0}})
+
             }
     });
 });
