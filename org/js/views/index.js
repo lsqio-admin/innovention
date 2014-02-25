@@ -30,11 +30,14 @@
                         ,email: false
                     }))
                 }
-                
+                var myVote = that.___.p.get("states.vote");
                 that.items.fetch({
                     success:function(){
                         that.items.each(function(m){
+
                             that.$("ul.list").append(that.listVideo(m.toJSON()));
+                            if(myVote == m.id)
+                                that.$(".item[data-id='"+m.id+"']").addClass("active");
                         })
                     },data:{"group":"vote"}
                 })
@@ -51,9 +54,12 @@
                     mv.save({"states.count":mv.get("states.count")-1})
                     that.___.p.save({"states.vote":id})
                     m.save({"states.count":m.get("states.count")+1})
+                    that.$(".item.active").removeClass("active");
+                    that.$(".item[data-id='"+m.id+"']").addClass("active")
                 }else{
                     that.___.p.save({"states.vote":id})
                     m.save({"states.count":m.get("states.count")+1})
+                    that.$(".item[data-id='"+m.id+"']").addClass("active")
                 }
                     
 
