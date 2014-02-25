@@ -5,6 +5,7 @@
 			routes: {
 				 '!_=_'				: 'index'
 				,'!/'				: 'index'
+				,'!admin'			: 'admin'
 				,'*actions'			: 'index' //catch all 
 				
 			},
@@ -76,6 +77,21 @@
 					});
 					return;
 				});
+
+			___.router.on('route:admin', function() {
+				var path = 'admin';
+				___ = ___.router.onPageStart(path, ___);
+				require(['views/admin'], function(Page) {
+					___.router.loadCss('/less/admin.css');
+					if(___.view.$('#content #admin').length >0)
+					 	___.view.$('#content #admin').show()
+					else{
+						page = ___.vm.create(___.view, 'admin', Page, {___: ___ });
+						___.view.$('#content').append(page.$el)
+					}
+				});
+				return;
+			});
 			
 			require(['views/topPage'], function(Page) {
 				var page;
