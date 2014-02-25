@@ -11,6 +11,7 @@
                 that.render();
             },
             events: {
+                "click .vote":"voteNow"
             },
             render:function(){
                 var that       = this;
@@ -35,6 +36,9 @@
                         })
                     },data:{"group":"vote"}
                 })
+            },voteNow:function(e){
+                var id = $(e.currentTarget).parents(".item").data("id");
+                console.log(id)
             }
     });
 });
