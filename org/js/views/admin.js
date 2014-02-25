@@ -9,6 +9,7 @@
                 this.profiles = new Profiles(null,{ s: this.___.so});
                 this.items.on("change:states.count",this.updateCount,this)
                 this.items.on("remove",this.removeItem,this)
+                this.items.on("add",this.addItem,this)
                 this.home = _.template(require('text!/html/admin.html'));
                 this.listVideo = _.template(require('text!/html/list-video-admin.html'));
                 that.render();
@@ -60,9 +61,13 @@
 
                 if(err == 0 ){
                     that.$(".createNewItem input").removeClass("err")
-                    that.items.create({title:title,body:{video:videoLink,desc:desc},states:{count:0},group:"vote"})
+                    that.items.create({title:title,body:{video:videoLink,desc:desc},states:{count:0},group:"vote"},{wait:true})
                 }
                     
+
+            },addItem:function(m){
+                if(m.get("group") == "vote" && this.$('.item[data-id="'+m.id+'"]').length == 0)
+                    this.$("ul.list").append(this.listVideo(m.toJSON()));
 
             },updateCount:function(m){
                 var that = this;
