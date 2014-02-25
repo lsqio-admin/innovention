@@ -47,6 +47,10 @@
                     ,m      = that.items.get(id)
                     ,myVote = that.___.p.get("states.vote");
                 if(id == myVote){
+                    var mv  = that.items.get(myVote);
+                    that.$(".item.active").removeClass("active");
+                    mv.save({"states.count":mv.get("states.count")-1})
+                    that.___.p.save({"states.vote":null})
 
                 }
                 else if(_.isString(myVote)){
