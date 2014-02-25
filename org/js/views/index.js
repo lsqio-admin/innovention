@@ -6,8 +6,10 @@
                 var that = this;
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
+                this.items.on("change:states.count",this.updateCount,this)
                 this.home = _.template(require('text!/html/index.html'));
                 this.listVideo = _.template(require('text!/html/list-video.html'));
+
                 that.render();
             },
             events: {
@@ -37,8 +39,16 @@
                     },data:{"group":"vote"}
                 })
             },voteNow:function(e){
-                var id = $(e.currentTarget).parents(".item").data("id");
-                console.log(id)
+                var that    = this
+                    ,id      = $(e.currentTarget).parents(".item").data("id")
+                    ,m       = that.items.get(id);
+
+                m.save({"states.count":m.get("states.count")+1})
+
+            },updateCount:function(m){
+                var that = this;
+
+                that.$(".item[data-id='"+m.id+"'] .count").html(m.get("states.count"))
             }
     });
 });
