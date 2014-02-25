@@ -1,13 +1,13 @@
 (function() {
-    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c','text!/html/index.html'], function(require, $, _, Backbone, Items) {
+    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c','text!/html/index.html','text!/html/list-video.html'], function(require, $, _, Backbone, Items) {
         return Backbone.View.extend({
             id: 'index',
             initialize: function(options) {
                 var that = this;
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
-                var Home = require('text!/html/index.html');
-                this.home = _.template(Home);
+                this.home = _.template(require('text!/html/index.html'));
+                this.listVideo = _.template(require('text!/html/list-video.html'));
                 that.render();
             },
             events: {
@@ -28,17 +28,13 @@
                     }))
                 }
                 
-
-                    
-                
-
-
-               /* that.items.fetch({
+                that.items.fetch({
                     success:function(){
-                    },data:{}
+                        that.items.each(function(m){
+                            that.$("ul.list").append(that.listVideo(m.toJSON());
+                        })
+                    },data:{"group":"vote"}
                 })
-             */
-            
             }
     });
 });
