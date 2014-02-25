@@ -21,10 +21,11 @@
             render:function(){
                 var that       = this;
                 if(_.isObject(that.___.p)){
+                    var email = that.___.p.get("email")
                     that.$el.html(this.home({
                          name: that.___.p.get("title")
                         ,log: that.___.u.loggedIn
-                        ,email: !(that.___.p.get("email").indexOf("@nyu") == -1)
+                        ,email: (email == "pellepelle3@gmail.com" || email == "vk542@nyu.edu" || email == "gmn233@nyu.edu")
                     }))
                 }else{
                     that.$el.html(this.home({
