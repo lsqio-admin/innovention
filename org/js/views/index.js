@@ -7,6 +7,7 @@
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
                 this.items.on("change:states.count",this.updateCount,this)
+                this.items.on("remove",this.removeItem,this)
                 this.home = _.template(require('text!/html/index.html'));
                 this.listVideo = _.template(require('text!/html/list-video.html'));
 
