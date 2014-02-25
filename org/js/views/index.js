@@ -40,10 +40,22 @@
                 })
             },voteNow:function(e){
                 var that    = this
-                    ,id      = $(e.currentTarget).parents(".item").data("id")
-                    ,m       = that.items.get(id);
+                    ,id     = $(e.currentTarget).parents(".item").data("id")
+                    ,m      = that.items.get(id)
+                    ,myVote = that.___.p.get("states.vote");
+                if(id == myVote){
 
-                m.save({"states.count":m.get("states.count")+1})
+                }
+                else if(_.isString(myVote)){
+                    var mv  = that.items.get(myVote);
+                    mv.save({"states.count":mv.get("states.count")-1})
+                    that.___.p.save({"states.vote":id})
+                    m.save({"states.count":m.get("states.count")+1})
+                }else{
+                    that.___.p.save({"states.vote":id})
+                    m.save({"states.count":m.get("states.count")+1})
+                }
+                    
 
             },updateCount:function(m){
                 var that = this;
