@@ -1,7 +1,19 @@
 module.exports = 
 {
-	 "title" : "Live Sqrd"
+	 "title" : "Innovention Voting"
 	,"api"		: {
+		"google"	: {
+					 "email"	: true
+					,"login"	: true
+					,"name" 	: 'google'
+					,"id"		: '198040123936-6p6u42g515p1fe3b6a9sk7qi2aj830j4.apps.googleusercontent.com'
+					,"secret"	: '0cn6th2r9xhMQmHFVza1eXcd'
+					,"scope"	: 'https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email'
+					,"consumer"	: false
+					,"callback"	: '/auth/google/callback'
+					,"entry"	: '/auth/google'
+					,"redirect"	: '/'
+				  }
 				}
 	,"useAuth" 	: false
 	,"auth" 	: {
