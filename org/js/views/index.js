@@ -71,6 +71,8 @@
                 var that = this;
 
                 that.$(".item[data-id='"+m.id+"'] .count").html(m.get("states.count"))
+            },removeItem:function(m){
+                this.$('.item[data-id="'+m.id+'"]').remove()
             }
     });
 });
