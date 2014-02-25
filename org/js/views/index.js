@@ -20,12 +20,15 @@
             },
             render:function(){
                 var that       = this;
+                var myVote ="";
                 if(_.isObject(that.___.p)){
                     that.$el.html(this.home({
                          name: that.___.p.get("title")
                         ,log: that.___.u.loggedIn
-                        ,email: !(that.___.p.get("email").indexOf("@nyu") == -1)
+                        ,email: (that.___.p.get("email").indexOf("@nyu") == -1)
+
                     }))
+                    myVote= that.___.p.get("states.vote");
                 }else{
                     that.$el.html(this.home({
                          name: ""
@@ -33,7 +36,7 @@
                         ,email: false
                     }))
                 }
-                var myVote = that.___.p.get("states.vote");
+                
                 that.items.fetch({
                     success:function(){
                         that.items.each(function(m){
