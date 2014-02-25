@@ -34,8 +34,18 @@ body{
 	}
 	.item{
 		list-style: none;
+		position: relative;
 		&.active{
 			background: #ddd;
+		}
+		h3{
+			display: inline-block;
+		}
+		aside{
+			display: inline-block;
+			position: absolute;
+			bottom: 0;
+			right: 0;
 		}
 	}
 }
