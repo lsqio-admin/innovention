@@ -68,6 +68,7 @@
 					___ = ___.router.onPageStart(path, ___);
 					require(['views/index'], function(Page) {
 						___.router.loadCss('/less/index.css');
+						___.view.$('#content > ').hide()
 						if(___.view.$('#content #index').length >0)
 						 	___.view.$('#content #index').show()
 						else{
@@ -81,8 +82,10 @@
 			___.router.on('route:admin', function() {
 				var path = 'admin';
 				___ = ___.router.onPageStart(path, ___);
+
 				require(['views/admin'], function(Page) {
 					___.router.loadCss('/less/admin.css');
+					___.view.$('#content > ').hide()
 					if(___.view.$('#content #admin').length >0)
 					 	___.view.$('#content #admin').show()
 					else{
