@@ -1,5 +1,5 @@
 (function() {
-    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c','text!/html/admin.html'], function(require, $, _, Backbone, Items) {
+    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c','text!/html/admin.html','text!/html/list-video-admin.html'], function(require, $, _, Backbone, Items) {
         return Backbone.View.extend({
             id: 'index',
             initialize: function(options) {
@@ -7,6 +7,7 @@
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
                 this.home = _.template(require('text!/html/admin.html'));
+                this.listVideo = _.template(require('text!/html/list-video-admin.html'));
                 that.render();
             },
             events: {
