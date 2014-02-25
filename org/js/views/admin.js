@@ -44,7 +44,9 @@
                 var that    = this
                 ,err        = 0
                 ,title      = that.$(".createNewItem .title").val()
-                ,videoLink  = that.$(".createNewItem .videoLink").val();
+                ,videoLink  = that.$(".createNewItem .videoLink").val()
+                ,desc       = that.$(".createNewItem .desc").val();
+
 
                 if(title.length < 3){
                     err++;
@@ -58,7 +60,7 @@
 
                 if(err == 0 ){
                     that.$(".createNewItem input").removeClass("err")
-                    that.items.create({title:title,body:{video:videoLink},states:{count:0},group:"vote"})
+                    that.items.create({title:title,body:{video:videoLink,desc:desc},states:{count:0},group:"vote"})
                 }
                     
 
