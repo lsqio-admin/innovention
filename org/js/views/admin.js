@@ -1,18 +1,21 @@
 (function() {
-    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c','text!/html/admin.html','text!/html/list-video-admin.html'], function(require, $, _, Backbone, Items) {
+    define(['require', 'jquery', 'underscore', 'bb', 'i/item/c','i/profile/c','text!/html/admin.html','text!/html/list-video-admin.html'], function(require, $, _, Backbone, Items,Profiles) {
         return Backbone.View.extend({
             id: 'index',
             initialize: function(options) {
                 var that = this;
                 this.___ = options.___;
                 this.items = new Items(null,{ s: this.___.so});
+                this.profiles = new Profiles(null,{ s: this.___.so});
                 this.items.on("change:states.count",this.updateCount,this)
+                this.items.on("remove",this.removeItem,this)
                 this.home = _.template(require('text!/html/admin.html'));
                 this.listVideo = _.template(require('text!/html/list-video-admin.html'));
                 that.render();
             },
             events: {
                 "click .create":"createItem"
+                ,"click .list .delete":"deleteItem"
             },
             render:function(){
                 var that       = this;
@@ -63,6 +66,22 @@
                 var that = this;
 
                 that.$(".item[data-id='"+m.id+"'] .count").html(m.get("states.count"))
+            },deleteItem:function(e){
+                var that= this
+                ,id     = $(e.currentTarget).parents(".item").data("id")
+                ,m      = that.items.get(id);
+                
+                m.destroy();
+                that.profiles.fetch({
+                    success:function(){
+                        that.profiles.each(function(p){
+                            p.save({"states.vote":null});
+                        })
+                    },data:{"states.vote":id}
+                })
+
+            },removeItem:function(m){
+                this.$('.item[data-id="'+m.id+'"]').remove()
             }
     });
 });
