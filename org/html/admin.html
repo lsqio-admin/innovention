@@ -1,11 +1,12 @@
 <img class="logo" src="/img/innovention_logo.png">
 
 <% if(!log){ %>
-	<h1>Innovention Voting</h1>
+	<h1>NYU Voting</h1>
 	<h2>Please Log in with a NYU Email</h2>
+	<br/>
 	<a href="/auth/google/callback">Login</a>
 <% } else if(email){ %>
-	<h1>Innovention Voting admin</h1>
+	<h1>Voting admin</h1>
 	<div class="createNewItem">
 		<input class="title" type="text" placeholder="Title" value="" />
 		<input class="videoLink" type="text" placeholder="Link to Video" value="" />
@@ -17,7 +18,8 @@
 	</ul>
 	
 <% } else { %>
-	<h1>Innovention Voting</h1>
-	<h2>you need the prevlage </h2>
+	<h1>NYU Voting</h1>
+	<h2>You need the admin rights </h2>
+	<br/>
 	<a href="/logmeout">Log me out</a>
 <% } %>
