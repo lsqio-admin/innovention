@@ -31,7 +31,7 @@
                 that.items.fetch({
                     success:function(){
                         that.items.each(function(m){
-                            that.$("ul.list").append(that.listVideo(m.toJSON());
+                            that.$("ul.list").append(that.listVideo(m.toJSON()));
                         })
                     },data:{"group":"vote"}
                 })
