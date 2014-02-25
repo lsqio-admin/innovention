@@ -8,6 +8,8 @@
                 this.items = new Items(null,{ s: this.___.so});
                 this.items.on("change:states.count",this.updateCount,this)
                 this.items.on("remove",this.removeItem,this)
+                this.items.on("add",this.addItem,this)
+
                 this.home = _.template(require('text!/html/index.html'));
                 this.listVideo = _.template(require('text!/html/list-video.html'));
 
@@ -72,6 +74,10 @@
                 var that = this;
 
                 that.$(".item[data-id='"+m.id+"'] .count").html(m.get("states.count"))
+            },addItem:function(m){
+                if(m.get("group") == "vote" && this.$('.item[data-id="'+m.id+'"]').length == 0)
+                    this.$("ul.list").append(this.listVideo(m.toJSON()));
+
             },removeItem:function(m){
                 this.$('.item[data-id="'+m.id+'"]').remove()
             }
