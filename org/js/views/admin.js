@@ -53,7 +53,7 @@
 
                 if(err == 0 ){
                     that.$(".createNewItem input").removeClass("err")
-                    that.items.create({title:title,body:{video:videoLink},states:{count:0}})
+                    that.items.create({title:title,body:{video:videoLink},states:{count:0},group:"vote"})
                 }
                     
 
