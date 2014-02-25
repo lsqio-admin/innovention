@@ -42,7 +42,7 @@
                 ,videoLink  = that.$(".createNewItem .videoLink").val();
 
                 if(title.length < 3){
-                    err++:
+                    err++;
                     that.$(".createNewItem .title").addClass("err");
                 }
 
