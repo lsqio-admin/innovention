@@ -37,10 +37,25 @@
                 })
             },createItem:function(){
                 var that    = this
+                ,err        = 0
                 ,title      = that.$(".createNewItem .title").val()
                 ,videoLink  = that.$(".createNewItem .videoLink").val();
 
-                that.items.create({title:title,body:{video:videoLink},states:{count:0}})
+                if(title.length < 3){
+                    err++:
+                    that.$(".createNewItem .title").addClass("err");
+                }
+
+                if(videoLink.length < 3){
+                    err++;
+                    that.$(".createNewItem .videoLink").addClass("err");
+                }
+
+                if(){
+                    that.$(".createNewItem input").removeClass("err")
+                    that.items.create({title:title,body:{video:videoLink},states:{count:0}})
+                }
+                    
 
             }
     });
