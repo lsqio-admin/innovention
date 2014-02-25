@@ -36,7 +36,11 @@ body{
 		list-style: none;
 		position: relative;
 		&.active{
-			background: #ddd;
+			aside{
+				.count{
+					background: #ddd;
+				}
+			}
 		}
 		h3{
 			display: inline-block;
@@ -46,6 +50,9 @@ body{
 			position: absolute;
 			bottom: 0;
 			right: 0;
+			.count{
+				padding:1em;
+			}
 		}
 	}
 }
