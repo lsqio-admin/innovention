@@ -51,7 +51,7 @@
                     that.$(".createNewItem .videoLink").addClass("err");
                 }
 
-                if(){
+                if(err == 0 ){
                     that.$(".createNewItem input").removeClass("err")
                     that.items.create({title:title,body:{video:videoLink},states:{count:0}})
                 }
