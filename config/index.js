@@ -1,6 +1,8 @@
 module.exports = 
 {
 	 "title" : "Innovention Voting"
+	,"subdomain":"Innovention"
+	,"env": "pro"
 	,"api"		: {
 		"google"	: {
 					 "email"	: true
