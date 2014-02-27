@@ -17,6 +17,7 @@
             events: {
                 "click .create":"createItem"
                 ,"click .list .delete":"deleteItem"
+                ,"click .listToggle": "listToggle"
             },
             render:function(){
                 var that       = this;
@@ -42,7 +43,10 @@
                         })
                     },data:{"group":"vote"}
                 })
-            },createItem:function(){
+            },listToggle:function(){
+                this.$(".item").toggleClass("listView")
+            }
+            ,createItem:function(){
                 var that    = this
                 ,err        = 0
                 ,title      = that.$(".createNewItem .title").val()
