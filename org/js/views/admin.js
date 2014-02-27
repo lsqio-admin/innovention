@@ -80,6 +80,10 @@
                 var that = this;
 
                 that.$(".item[data-id='"+m.id+"'] .count").html(m.get("states.count"))
+                that.$(".item[data-id='"+m.id+"'] .count").addClass("active")
+                setTimeout(function(){
+                    that.$(".item[data-id='"+m.id+"'] .count").removeClass("active")
+                },2000)
             },deleteItem:function(e){
                 var that= this
                 ,id     = $(e.currentTarget).parents(".item").data("id")
