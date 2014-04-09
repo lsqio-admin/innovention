@@ -27,18 +27,16 @@
 	return app;
 	}
 	var events = function(){
-		db.when("instance:create",function(data){
-			console.log("instance:create",data)
+		db.when("instance","create",function(data){
+			console.log("instance","create",data)
 		})
-		db.when("instances:create",function(data){
-			console.log("instances:create",data)
+		db.when("instance","delete",function(data){
+			console.log("instance","delete",data)
 		})
-		db.when("instance:delete",function(data){
-			console.log("instance:create",data)
+		db.when("instance","update",function(data){
+			console.log("instance","update",data)
 		})
-		db.when("instances:delete",function(data){
-			console.log("instances:create",data)
-		})
+		
 	}
 return exports;
 })(exports)
