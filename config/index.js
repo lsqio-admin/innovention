@@ -2,7 +2,7 @@ module.exports =
 {
 	 "title" : "Innovention Voting"
 	,"subdomain":"Innovention"
-	,"env": "pro"
+	,"env": "dev"
 	,"api"		: {
 		"google"	: {
 					 "email"	: true
