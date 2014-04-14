@@ -1,2 +1,4 @@
-- if ('undefined' !== typeof errors && errors.length)
-	!{JSON.stringify(errors)}
+-	if ('undefined' !== typeof errors && errors.length)
+		!{{"errors":JSON.stringify(errors)}}
+	else
+		!{{"errors":""}}
