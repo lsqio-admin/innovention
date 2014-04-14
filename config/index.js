@@ -20,7 +20,7 @@ module.exports =
 	,"password"	: {
 				  	 "name" 	: "password"
 				  	,"login"	: true
-				  	,"extraReg": "{'name':{'first':params.first,'last':params.last},'gender':params.gender}"
+				  	,"extraReg": "{\"name\":{\"first\":params.first,\"last\":params.last},\"gender\":params.gender}"
 				  }
 				}
 	,"useAuth" 	: false
