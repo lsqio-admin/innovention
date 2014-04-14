@@ -16,6 +16,11 @@ module.exports =
 					,"entry"	: '/auth/google'
 					,"redirect"	: '/'
 				  }
+
+				  "password"	: {
+				  	,"name" 	: "password"
+				  	,"extraParams": "{'name':{'first':params.first,'last':params.last},'gender':params.gender}"
+				  }
 				}
 	,"useAuth" 	: false
 	,"auth" 	: {
