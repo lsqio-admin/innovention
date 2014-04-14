@@ -18,7 +18,7 @@ module.exports =
 				  }
 
 				  ,"password"	: {
-				  	,"name" 	: "password"
+				  	 "name" 	: "password"
 				  	,"extraParams": "{'name':{'first':params.first,'last':params.last},'gender':params.gender}"
 				  }
 				}
