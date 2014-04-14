@@ -17,7 +17,7 @@ module.exports =
 					,"redirect"	: '/'
 				  }
 
-				  "password"	: {
+				  ,"password"	: {
 				  	,"name" 	: "password"
 				  	,"extraParams": "{'name':{'first':params.first,'last':params.last},'gender':params.gender}"
 				  }
