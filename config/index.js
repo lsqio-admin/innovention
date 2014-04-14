@@ -19,6 +19,7 @@ module.exports =
 
 	,"password"	: {
 				  	 "name" 	: "password"
+				  	,"login"	: true
 				  	,"extraParams": "{'name':{'first':params.first,'last':params.last},'gender':params.gender}"
 				  }
 				}
