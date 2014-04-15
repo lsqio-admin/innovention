@@ -20,7 +20,9 @@
 				res.send("there are "+data+" visitors on the site now.")
 			})		
 		})
-
+		app.get("/amILoggedIn",function(req,res){
+			res.send(req.session)	
+		})
 		app.get("/amILoggedIn",function(req,res){
 			res.send(_.has(req.session,"p"))	
 		})
